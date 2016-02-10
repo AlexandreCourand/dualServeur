@@ -9,7 +9,7 @@
 
 int main(void){
 	int socket_serveur = creer_serveur(8080);
-	initialiser_signaux();
+	//initialiser_signaux();
 	while(1){
 		int socket_client ;
 		socket_client = accept ( socket_serveur , NULL , NULL );
@@ -22,6 +22,7 @@ int main(void){
 
 		const char * message_bienvenue = " Bonjour , bienvenue sur mon serveur \n+\n+\n+\n+\n+\n+\n+\n+\n+\n+\n je suis un très long messageeeeeeeeeeeeeeeee \n" ;
 		sleep(1);
+		printf("------------------ %zu\n", strlen(message_bienvenue));
 		write ( socket_client , message_bienvenue , strlen ( message_bienvenue ));
 		
 		while(1){
